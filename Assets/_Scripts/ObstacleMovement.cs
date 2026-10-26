@@ -3,29 +3,55 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float trackingSpeed = 2f;
 
+    [Header("AI Detection")]
+    [SerializeField] private float detectionRadius = 4f;
+
+    private Transform player;
     private Camera mainCamera;
 
-    void Awake()
+    void Start()
     {
         mainCamera = Camera.main;
+
+        GameObject playerObject =
+            GameObject.FindGameObjectWithTag("Player");
+
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
     }
 
     void Update()
     {
-        // Move obstacle downward
-        transform.Translate(
-            Vector3.down * moveSpeed * Time.deltaTime,
-            Space.World
-        );
+        Vector3 movement = Vector3.down * moveSpeed;
 
-        // Calculate bottom of camera
+        if (player != null)
+        {
+            float distance = Vector2.Distance(
+                transform.position,
+                player.position
+            );
+
+            if (distance <= detectionRadius)
+            {
+                float direction =
+                    Mathf.Sign(player.position.x - transform.position.x);
+
+                movement.x = direction * trackingSpeed;
+            }
+        }
+
+        transform.position += movement * Time.deltaTime;
+
         float cameraBottom =
             mainCamera.transform.position.y
             - mainCamera.orthographicSize;
 
-        // Return obstacle to pool when outside screen
         if (transform.position.y < cameraBottom - 1f)
         {
             gameObject.SetActive(false);

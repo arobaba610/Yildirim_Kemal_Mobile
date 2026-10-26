@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7946203579178660207}
   - component: {fileID: 6617434823715503985}
-  - component: {fileID: 3783263841103246067}
   - component: {fileID: -3130049477088388987}
   - component: {fileID: 460921453862958467}
+  - component: {fileID: 5330433657146352559}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -94,19 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &3783263841103246067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5286232356305320074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e2329e8b8756548a08b68e4e619f59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  speed: 10
 --- !u!61 &-3130049477088388987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,3 +167,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5330433657146352559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5286232356305320074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa73a549a08efb4c97f6f47ff970de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pickup
+  moveSpeed: 2
+  pointValue: 50

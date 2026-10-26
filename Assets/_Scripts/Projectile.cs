@@ -29,10 +29,13 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
+            if (ScoreManager.Instance != null)
+                ScoreManager.Instance.AddScore(100);
+
             other.gameObject.SetActive(false);
             Destroy(gameObject);
         }
