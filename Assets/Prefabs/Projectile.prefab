@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6617434823715503985}
   - component: {fileID: -3130049477088388987}
   - component: {fileID: 460921453862958467}
-  - component: {fileID: 5330433657146352559}
+  - component: {fileID: 6904171806187608965}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.08, y: 0.22857143, z: 0.22857143}
+  m_LocalScale: {x: 0.29, y: 0.82857144, z: 0.82857144}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5471698, g: 0.40779635, b: 0.40779635, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -167,7 +167,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5330433657146352559
+--- !u!114 &6904171806187608965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,8 +176,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5286232356305320074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baa73a549a08efb4c97f6f47ff970de4, type: 3}
+  m_Script: {fileID: 11500000, guid: d9e2329e8b8756548a08b68e4e619f59, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pickup
-  moveSpeed: 2
-  pointValue: 50
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  speed: 10

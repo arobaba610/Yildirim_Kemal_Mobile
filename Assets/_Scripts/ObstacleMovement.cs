@@ -26,9 +26,10 @@ public class ObstacleMovement : MonoBehaviour
         }
     }
 
+
     void Update()
     {
-        Vector3 movement = Vector3.down * moveSpeed;
+        float nextX = transform.position.x;
 
         if (player != null)
         {
@@ -39,14 +40,22 @@ public class ObstacleMovement : MonoBehaviour
 
             if (distance <= detectionRadius)
             {
-                float direction =
-                    Mathf.Sign(player.position.x - transform.position.x);
-
-                movement.x = direction * trackingSpeed;
+                nextX = Mathf.MoveTowards(
+                    transform.position.x,
+                    player.position.x,
+                    trackingSpeed * Time.deltaTime
+                );
             }
         }
 
-        transform.position += movement * Time.deltaTime;
+        float nextY =
+            transform.position.y - moveSpeed * Time.deltaTime;
+
+        transform.position = new Vector3(
+            nextX,
+            nextY,
+            transform.position.z
+        );
 
         float cameraBottom =
             mainCamera.transform.position.y
@@ -57,4 +66,5 @@ public class ObstacleMovement : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
 }

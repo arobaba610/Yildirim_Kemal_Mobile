@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float speed = 10f;
 
     private Camera mainCamera;
+    private bool hasHit = false;
 
     void Awake()
     {
@@ -31,10 +32,17 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (hasHit)
+            return;
+
         if (other.CompareTag("Enemy"))
         {
+            hasHit = true;
+
             if (ScoreManager.Instance != null)
+            {
                 ScoreManager.Instance.AddScore(100);
+            }
 
             other.gameObject.SetActive(false);
             Destroy(gameObject);

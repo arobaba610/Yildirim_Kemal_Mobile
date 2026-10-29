@@ -2,7 +2,7 @@
 using UnityEngine;
 using TMPro;
 
-public class ScoreUI : MonoBehaviour
+public class FinalScoreUI: MonoBehaviour
 {
     [SerializeField] private TMP_Text finalScoreText;
 
